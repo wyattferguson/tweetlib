@@ -7,9 +7,9 @@ import http
 from pyquery import PyQuery
 
 
-class TweetScraper:
+class TwitterScraper:
     base_url = 'https://twitter.com'
-    max_tweets = 25
+    max_tweets = 20
     username = ''
     since = ''
     until = ''
@@ -17,7 +17,7 @@ class TweetScraper:
     top_tweets = ''
 
 
-    def __init__(self, username='', max_tweets=25, since='', until='', \
+    def __init__(self, username='', max_tweets=20, since='', until='', \
                  query_search='', top_tweets=False):
         self.set_max_tweets(max_tweets)
         self.set_username(username)
@@ -26,11 +26,6 @@ class TweetScraper:
         self.set_query_search(query_search)
         self.set_top_tweets(top_tweets)
         
-
-    def __str__(self):
-        return f"Max Tweets:{self.max_tweets} \nUsername:{self.username} \nSince:{self.since} \
-            \nUntil:{self.until} \nQuery:{self.query_search} \nTop Tweets:{self.top_tweets}"        
-
 
     def set_username(self, username=''):
         """
@@ -169,6 +164,7 @@ class TweetScraper:
 
                 results.append(tweet)
 
+                # break out when the max_tweet limit is hit
                 if self.max_tweets > 0 and len(results) >= self.max_tweets:
                     active = False
                     break
@@ -177,11 +173,12 @@ class TweetScraper:
 
 
     def get_json_reponse(self, refresh_cursor, cookie_jar):
-        """[summary]
+        """
+        Pull JSON file from Twitter and decode it
         
         Arguments:
             refresh_cursor -- tweet pagination
-            cookie_jar -- [description]
+            cookie_jar -- page cookie
         
         Returns:
             [json] -- tweets in JSON format
@@ -214,7 +211,7 @@ class TweetScraper:
 
     def create_url(self, refresh_cursor):
         """
-        
+        Generate a Twitter valid URL to load JSON file from
 
         Arguments:
             refresh_cursor -- tweet pagination
