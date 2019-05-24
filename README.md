@@ -5,16 +5,19 @@ A python twitter scraper with no-api keys required. This is a refactoring and re
     pip3 install tweetlib
 
 
-## What can it do?
-All these functions can be used in combination with one another. Alternatively you can pass the variables in when you create an new instance of the library.
+## How to use it 
+All these parameters can be used in combination with one another. Alternatively you can pass the variables in when you create an new instance of the library.
 
+    ts = tweetlib.TweetLib(username="barackobama", max_tweets=10)
 
-- set_username(str): any valid twitter name you want to scrape
-- set_since("yyyy-mm-dd"): A lower bound date to restrict search.
-- set_until("yyyy-mm-dd"):An upper bound date to restrict search.
-- set_query_search(str): Search string
-- set_top_tweets(bool): Return top tweets
-- set_max_tweets(int): Max number of tweets you want to scrape.
+### Arguments
+
+- username(str): any valid twitter name you want to scrape
+- since("yyyy-mm-dd"): A lower bound date to restrict search.
+- until("yyyy-mm-dd"):An upper bound date to restrict search.
+- query_search(str): Search string
+- top_tweets(bool): Return top tweets
+- max_tweets(int): Max number of tweets you want to scrape.
 
 
 ## Tweet Object
