@@ -7,7 +7,7 @@ import http
 from pyquery import PyQuery
 
 
-class TwitterScraper:
+class TweetLib:
     base_url = 'https://twitter.com'
     max_tweets = 20
     username = ''

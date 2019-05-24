@@ -2,7 +2,7 @@
 A python twitter scraper with no-api keys required. This is a refactoring and rewrite Jefferson Henrique's library [GetOldTweets-python](https://github.com/Jefferson-Henrique/GetOldTweets-python)
 
 ## Installation 
-    pip3 install twttrscrape
+    pip3 install tweetlib
 
 
 ## What can it do?
@@ -37,18 +37,18 @@ The tweet objects it returns in the list contain the following:
 ## Examples
 
 ``` python
-    import twttrscrape
+    import tweetlib
     # Get tweets by username
-    ts = twttrscrape.TwitterScraper(username="barackobama")
+    ts = tweetlib.TweetLib(username="barackobama")
     tweets = ts.get_tweets()
 
     # or you can use the set method instead
-    ts = twttrscrape.TwitterScraper()
+    ts = tweetlib.TweetLib()
     ts.set_username("barackobama")
     tweets = ts.get_tweets()
 
     # Search for tweets
-    ts = twttrscrape.TwitterScraper()
+    ts = tweetlib.TweetLib()
     ts.set_query_search("college")
     ts.set_max_tweets(100)
     tweets = ts.get_tweets()
