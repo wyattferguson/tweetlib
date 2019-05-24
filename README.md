@@ -37,7 +37,7 @@ The tweet objects it returns in the list contain the following:
 ## Examples
 
 ``` python
-    import tweetlib
+    from tweetlib import tweetlib
     # Get tweets by username
     ts = tweetlib.TweetLib(username="barackobama")
     tweets = ts.get_tweets()
