@@ -6,7 +6,7 @@ A python twitter scraper with no-api keys required. This is a refactoring and re
 
 
 ## How to use it 
-All these parameters can be used in combination with one another. Alternatively you can pass the variables in when you create an new instance of the library.
+All these parameters can be used in combination with one another. 
 
     ts = tweetlib.TweetLib(username="barackobama", max_tweets=10)
 
@@ -18,6 +18,20 @@ All these parameters can be used in combination with one another. Alternatively 
 - query_search(str): Search string
 - top_tweets(bool): Return top tweets
 - max_tweets(int): Max number of tweets you want to scrape.
+
+
+## Examples
+
+``` python
+    from tweetlib import tweetlib
+    # Get tweets by username
+    ts = tweetlib.TweetLib(username="barackobama", max_tweets=10)
+    tweets = ts.get_tweets()
+
+    # Search for tweets
+    ts = tweetlib.TweetLib(query_search="college", since="2018-01-01")
+    tweets = ts.get_tweets()
+```    
 
 
 ## Tweet Object
@@ -36,26 +50,6 @@ The tweet objects it returns in the list contain the following:
         hashtags (str)
     }
 
-
-## Examples
-
-``` python
-    from tweetlib import tweetlib
-    # Get tweets by username
-    ts = tweetlib.TweetLib(username="barackobama")
-    tweets = ts.get_tweets()
-
-    # or you can use the set method instead
-    ts = tweetlib.TweetLib()
-    ts.set_username("barackobama")
-    tweets = ts.get_tweets()
-
-    # Search for tweets
-    ts = tweetlib.TweetLib()
-    ts.set_query_search("college")
-    ts.set_max_tweets(100)
-    tweets = ts.get_tweets()
-```    
 
 
 ## Credit and Contact
