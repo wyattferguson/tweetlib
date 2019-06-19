@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="tweetlib",
-    version="0.1.2",
+    version="0.2.0",
     author="Wyatt Ferguson",
     author_email="wyattf@gmail.com",
     description="A python twitter scraper with no-api keys required.",

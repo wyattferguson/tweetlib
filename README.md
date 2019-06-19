@@ -1,5 +1,5 @@
 # Twitter Scraper
-A python twitter scraper with no-api keys required. This is a refactoring and rewrite Jefferson Henrique's library [GetOldTweets-python](https://github.com/Jefferson-Henrique/GetOldTweets-python)
+A python twitter scraper with no-api keys required.
 
 ## Installation 
     pip3 install tweetlib
@@ -16,7 +16,6 @@ All these parameters can be used in combination with one another.
 - since("yyyy-mm-dd"): A lower bound date to restrict search.
 - until("yyyy-mm-dd"):An upper bound date to restrict search.
 - query_search(str): Search string
-- top_tweets(bool): Return top tweets
 - max_tweets(int): Max number of tweets you want to scrape.
 
 
