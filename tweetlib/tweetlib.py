@@ -143,10 +143,3 @@ class TweetLib:
 
         url = "/i/search/timeline?f=tweets&q=%s&src=typd&max_position=%s" % (urllib.parse.quote(url_data), refresh_cursor)
         return self.base_url + url
-
-
-if __name__ == "__main__":
-    ts = TweetLib(username="wyattferguson", max_tweets=10)
-    tweets = ts.get_tweets()
-    for t in tweets:
-        print(t)
