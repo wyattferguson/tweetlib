@@ -38,7 +38,7 @@ class TweetLib:
             if len(username) < 16 and re.match(r'[a-zA-Z_]\w+', username):
                 self.username = username
             else:
-                print("Invalid Username: ", username)
+                raise ValueError("Invalid Username")
 
 
     def set_since(self, since=''):
@@ -53,7 +53,7 @@ class TweetLib:
             if len(since) == 10 and r.match(since) is not None:
                 self.since = since
             else:
-                print("Invalid timestamp(YYYY-MM-DD): ", since)
+                raise ValueError("Invalid timestamp(YYYY-MM-DD): ", since)
 
 
     def set_until(self, until=''):
@@ -68,7 +68,7 @@ class TweetLib:
             if len(until) == 10 and r.match(until) is not None:
                 self.until = until
             else:
-                print("Invalid timestamp(YYYY-MM-DD): ", until)
+                raise ValueError("Invalid timestamp(YYYY-MM-DD): ", until)
 
 
     def set_query_search(self, query_search=''):
@@ -82,7 +82,7 @@ class TweetLib:
             if len(query_search) <= 280:
                 self.query_search = query_search
             else:
-                print("Query String is too long(max_len:280)")
+                raise ValueError("Query String is too long(max_len:280)")
 
 
     def set_max_tweets(self, max_tweets=25):
@@ -95,7 +95,7 @@ class TweetLib:
         if str(max_tweets).isdigit() and max_tweets > 0:
             self.max_tweets = max_tweets
         else:
-            print("Invalid max_tweets(int): ", max_tweets)
+            raise ValueError("Invalid max_tweets(int): ", max_tweets)
 
 
     def set_top_tweets(self, top_tweets=False):
@@ -108,7 +108,7 @@ class TweetLib:
         if type(top_tweets) == bool:
             self.top_tweets = top_tweets
         else:
-            print("Invalid top_tweets(bool): ", top_tweets)
+            raise ValueError("Invalid top_tweets(bool): ", top_tweets)
 
 
     def get_tweets(self):
@@ -203,8 +203,7 @@ class TweetLib:
             json_response = response.read()
         except Exception as e:
             print(e)
-            print("Unexpected error:", sys.exc_info()[0])
-            return
+            raise ValueError("Unexpected error:", sys.exc_info()[0])
 
         return json.loads(json_response.decode())
         
